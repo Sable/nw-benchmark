@@ -1,0 +1,34 @@
+{
+    "type": "implementation",
+    "short-name":"matlab",
+    "description":"Matlab port of C implementation",
+    "language":"matlab",
+    "core-source-files":[
+       { "file": "./needle.m"}
+    ],
+    "runner-source-file": { "file": "./runner.m" },
+    "runner-arguments": [
+        {
+            "expand": "/experiment/input-size",
+            "path": "/dimensions"
+        },
+        {
+            "expand": "/experiment/input-size",
+            "path": "/penalty"
+        },
+        { "file": "./seq1.data" },
+        { "file": "./seq2.data" }, 
+        { "file": "./nw.data" }
+    ],
+    "libraries":[
+        { "file": "./common/commonRandom.m" },
+        { "file": "./common/setRandomSeed.m" },
+        { "file": "./common/fletcherSum.m" }
+    ],
+    "dependencies": [
+        {
+            "source": "https://github.com/Sable/ostrich-matlab-implementation-common.git",
+            "destination": { "file": "./common" }
+        }
+    ]
+}
